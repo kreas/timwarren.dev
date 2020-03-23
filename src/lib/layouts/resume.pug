@@ -1,0 +1,111 @@
+extends _base.pug
+
+block append head
+  title= title
+  link(rel="stylesheet" href="styles/resume.css")
+
+block content
+  main#resume.content.p-4
+    section#title
+      h1 Timothy R. Warren
+      .subheading Engineering Manager / Senior Full Stack Developer
+
+    section#resume-content
+      != contents
+
+    section#meta-information
+      #contact-info
+        h2 Contact Information
+        ul
+          li
+            .label Email Address
+            a(href="mailto:hello@timwarren.dev") hello@timwarren.dev
+          li
+            .label GitHub
+            a(href="http://b.link/TWGitHub") http://b.link/TWGitHub
+          li
+            .label LinkedIn
+            a(href="http://b.link/TimWarren") http://b.link/TimWarren
+
+      #skills
+        h2 Skills
+
+        ul
+          li
+            .label Leadership
+            .gauge.one-hundred-percent
+
+          li
+            .label Project Management
+            .gauge.one-hundred-percent
+
+          li
+            .label SQL/PostgreSQL
+            .gauge.one-hundred-percent
+
+          li
+            .label JavaScript/ECMAScript
+            .gauge.one-hundred-percent
+
+          li
+            .label Ruby/Ruby on Rails
+            .gauge.ninety-percent
+
+          li
+            .label Elixir/Phoenix
+            .gauge.ninety-percent
+
+          li
+            .label Go
+            .gauge.eighty-percent
+
+          li
+            .label Solidity
+            .gauge.eighty-percent
+
+          li
+            .label AWS
+            .gauge.seventy-percent
+
+          li
+            .label Docker/Kubernetes
+            .gauge.sixty-percent
+
+
+  #thank-you
+    .content.p-4.pb-16
+      div(class="grid gap-6 md: grid-cols-2")
+        section#thank-you-note
+          h2.mb-2 Thank you 
+          p.text-xl.leading-relaxed
+            | Thank you so much for taking the time to look at my resume. If you think like I would
+            | be a good fit for your company, or you want to chat, please reach out. I'd love to
+            | hear from you.
+
+        section#contact-form
+          form
+            div(class="grid lg:gap-6 lg:grid-cols-2")
+              .mb-6
+                label(for="full-name") Name
+                input(type="text" id="full-name" name="full-name" placeholder="Tim Warren" required)
+
+              .mb-6
+                label(for="company") Company
+                input(type="text" id="company" name="company" placeholder="Acme Inc.")
+
+            div(class="grid lg:gap-6 lg:grid-cols-2")
+              .mb-6
+                label(for="email") Email
+                input(type="email" name="email" id="email" placeholder="hello@timwarren.dev" required)
+
+              .mb-6
+                label(for="contact-phone-number") Contact Phone Number
+                input(type="tel" name="phone" id="contact-phone-number" placeholder="(555) 555-1234" required)
+
+            .mb-6
+              label(for="message") Message
+              textarea(name="message", cols="30", rows="10")
+
+
+            .text-right
+              button(type="submit" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700 transition duration-500") Submit

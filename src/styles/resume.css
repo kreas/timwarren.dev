@@ -1,0 +1,156 @@
+#resume {
+  @apply grid gap-6;
+  grid-template-columns: 1fr;
+
+  h1 {
+    @apply pb-0;
+    font-size: 2.2rem;
+  }
+
+  .subheading {
+    @apply font-bold text-blue-800;
+  }
+
+
+  h2 {
+    @apply mb-3 leading-loose border-b border-gray-200;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-gray-600 font-bold mb-2;
+  }
+
+  strong {
+    @apply text-gray-600 font-medium;
+  }
+
+  #contact-info {
+    ul {
+      @apply mb-10;
+    }
+
+    .label {
+      @apply text-sm text-gray-600;
+    }
+
+    a {
+      @apply font-bold;
+
+      &:hover {
+        @apply underline;
+      }
+    }
+  }
+
+  #skills {
+    li {
+      @apply mb-4;
+    }
+    .label {
+      @apply font-bold;
+    }
+
+    .gauge {
+      @apply h-3 bg-gray-300 mt-2;
+    }
+
+    .one-hundred-percent {
+      @apply bg-gray-600;
+    }
+
+    .ninety-percent {
+      background: linear-gradient(
+        90deg,
+        theme('colors.gray.600') 90%,
+        theme('colors.gray.300') 90%);
+    }
+
+
+    .eighty-percent {
+      background: linear-gradient(
+        90deg,
+        theme('colors.gray.600') 80%,
+        theme('colors.gray.300') 80%);
+    }
+
+    .seventy-percent {
+      background: linear-gradient(
+        90deg,
+        theme('colors.gray.600') 70%,
+        theme('colors.gray.300') 7%);
+    }
+
+    .sixty-percent {
+      background: linear-gradient(
+        90deg,
+        theme('colors.gray.600') 60%,
+        theme('colors.gray.300') 60%);
+    }
+  }
+
+  #resume-content {
+    ul {
+      @apply list-outside list-disc mb-6 mt-2 ml-8;
+
+      li {
+        @apply mb-2;
+      }
+    }
+    
+    p {
+      @apply mb-4;
+    }
+  }
+}
+
+#thank-you {
+  @apply text-gray-200 py-16 mt-16;
+  background-color: rgb(11, 33, 46);
+
+  h2 {
+    @apply text-yellow-200 font-normal;
+    font-family: 'Merriwearther', serif;
+    font-size: 4rem;
+  }
+
+  label {
+    @apply block mb-2;
+  }
+
+  input, textarea {
+    @apply appearance-none block w-full bg-gray-200 text-gray-700;
+    @apply border-red-500 rounded py-3 px-4 mb-3 leading-tight;
+
+    &:focus {
+      @apply outline-none bg-white; 
+    }
+  }
+}
+
+@screen md {
+  #resume {
+    grid-template-rows: auto auto;
+    grid-template-columns: 3fr 1fr;
+
+    h1 {
+      font-size: 4.6rem;
+    }
+
+    #title {
+      @apply mt-4 border-b border-gray-400;
+      grid-column: 1/3;
+    }
+
+    .subheading {
+      @apply text-lg mb-6;
+    }
+
+    #resume-content {
+      @apply border-r border-gray-400 pr-6;
+    }
+  }
+}

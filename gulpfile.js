@@ -75,7 +75,7 @@ gulp.task('markdown', () => {
 // Compiles stylesheets using postcss
 gulp.task('stylesheets', () => {
   return gulp
-    .src(['src/index.css', '!src/lib/**/*.css'])
+    .src(['src/**/*.css', '!src/**/_*.css'])
     .pipe(postcss([
       require('postcss-easy-import'),
       require('postcss-nested'),
@@ -107,7 +107,7 @@ gulp.task('build', gulp.parallel(
 gulp.task('watch', () => {
   gulp.watch('src/**/*.css', gulp.series('stylesheets'))
   gulp.watch('src/**/*.pug', gulp.series('markup'))
-  gulp.watch('src/**/*.md', gulp.series('markdown'))
+  gulp.watch(['src/**/*.md', 'src/lib/layouts/**/*.pug'], gulp.series('markdown'))
   gulp.watch('src/**/*.{png,jpg,svg,ico}', gulp.series('assets'))
   gulp.watch('src/**/*.js', gulp.series('javascript'))
 })
