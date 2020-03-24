@@ -2,7 +2,7 @@ extends _base.pug
 
 block append head
   title= title
-  link(rel="stylesheet" href="styles/resume.css")
+  link(rel="stylesheet" href="/styles/resume.css")
 
 block content
   main#resume.content.p-4
@@ -13,9 +13,9 @@ block content
     section#resume-content
       != contents
 
-    section#meta-information
+    section#meta
       #contact-info
-        h2 Contact Information
+        h2 Contact
         ul
           li
             .label Email Address
@@ -60,10 +60,6 @@ block content
             .gauge.eighty-percent
 
           li
-            .label Solidity
-            .gauge.eighty-percent
-
-          li
             .label AWS
             .gauge.seventy-percent
 
@@ -74,13 +70,14 @@ block content
 
   #thank-you
     .content.p-4.pb-16
-      div(class="grid gap-6 md: grid-cols-2")
+      div(class="grid gap-6 md:grid-cols-2")
         section#thank-you-note
           h2.mb-2 Thank you 
-          p.text-xl.leading-relaxed
-            | Thank you so much for taking the time to look at my resume. If you think like I would
-            | be a good fit for your company, or you want to chat, please reach out. I'd love to
-            | hear from you.
+          p.text-xl.leading-relaxed.mb-6.
+            Thank you so much for taking the time to look at my resume. If you think I would
+            be a good fit for your company, or you want to chat, please reach out. I'd love to
+            hear from you.
+          hr(class="block md:hidden mb-2 border-yellow-200 border opacity-50")
 
         section#contact-form
           form
@@ -104,8 +101,7 @@ block content
 
             .mb-6
               label(for="message") Message
-              textarea(name="message", cols="30", rows="10")
-
+              textarea(name="message", id="message" cols="30", rows="10")
 
             .text-right
               button(type="submit" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700 transition duration-500") Submit

@@ -1,6 +1,9 @@
 #resume {
   @apply grid gap-6;
   grid-template-columns: 1fr;
+  grid-template-areas: "title"
+                       "resume"
+                       "meta";
 
   h1 {
     @apply pb-0;
@@ -28,71 +31,83 @@
     @apply text-gray-600 font-medium;
   }
 
-  #contact-info {
-    ul {
-      @apply mb-10;
+  #title {
+    grid-area: title;
+  }
+
+  #meta {
+    grid-area: resume;
+
+    #contact-info {
+      ul {
+        @apply mb-10;
+      }
+
+      .label {
+        @apply text-sm text-gray-600;
+      }
+
+      a {
+        @apply font-bold;
+
+        &:hover {
+          @apply underline;
+        }
+      }
     }
 
-    .label {
-      @apply text-sm text-gray-600;
-    }
+    #skills {
+      li {
+        @apply mb-4;
+      }
+      .label {
+        @apply font-bold;
+      }
 
-    a {
-      @apply font-bold;
+      .gauge {
+        @apply h-3 bg-gray-300 mt-2;
+        -webkit-print-color-adjust: exact !important;
+      }
 
-      &:hover {
-        @apply underline;
+      .one-hundred-percent {
+        @apply bg-gray-600;
+      }
+
+      .ninety-percent {
+        background: linear-gradient(
+          90deg,
+          theme('colors.gray.600') 90%,
+          theme('colors.gray.300') 90%);
+      }
+
+
+      .eighty-percent {
+        background: linear-gradient(
+          90deg,
+          theme('colors.gray.600') 80%,
+          theme('colors.gray.300') 80%);
+      }
+
+      .seventy-percent {
+        background: linear-gradient(
+          90deg,
+          theme('colors.gray.600') 70%,
+          theme('colors.gray.300') 7%);
+      }
+
+      .sixty-percent {
+        background: linear-gradient(
+          90deg,
+          theme('colors.gray.600') 60%,
+          theme('colors.gray.300') 60%);
       }
     }
   }
 
-  #skills {
-    li {
-      @apply mb-4;
-    }
-    .label {
-      @apply font-bold;
-    }
-
-    .gauge {
-      @apply h-3 bg-gray-300 mt-2;
-    }
-
-    .one-hundred-percent {
-      @apply bg-gray-600;
-    }
-
-    .ninety-percent {
-      background: linear-gradient(
-        90deg,
-        theme('colors.gray.600') 90%,
-        theme('colors.gray.300') 90%);
-    }
-
-
-    .eighty-percent {
-      background: linear-gradient(
-        90deg,
-        theme('colors.gray.600') 80%,
-        theme('colors.gray.300') 80%);
-    }
-
-    .seventy-percent {
-      background: linear-gradient(
-        90deg,
-        theme('colors.gray.600') 70%,
-        theme('colors.gray.300') 7%);
-    }
-
-    .sixty-percent {
-      background: linear-gradient(
-        90deg,
-        theme('colors.gray.600') 60%,
-        theme('colors.gray.300') 60%);
-    }
-  }
 
   #resume-content {
+    grid-area: meta;
+
     ul {
       @apply list-outside list-disc mb-6 mt-2 ml-8;
 
@@ -131,10 +146,12 @@
   }
 }
 
-@screen md {
+@screen lg {
   #resume {
     grid-template-rows: auto auto;
     grid-template-columns: 3fr 1fr;
+    grid-template-areas: "title title"
+                         "resume meta";
 
     h1 {
       font-size: 4.6rem;
@@ -151,6 +168,37 @@
 
     #resume-content {
       @apply border-r border-gray-400 pr-6;
+      grid-area: resume;
     }
+
+    #meta {
+      grid-area: meta;
+    }
+  }
+}
+
+@media print {
+  #resume {
+    grid-template-rows: auto auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "title title"
+                          "resume meta";
+  }
+
+  #title {
+    @apply mt-4 border-b border-gray-400;
+    grid-column: 1/3;
+  }
+
+  #resume-content {
+    grid-area: resume !important;
+  }
+
+  #meta {
+    grid-area: meta !important;
+  }
+
+  #thank-you {
+    display: none;
   }
 }

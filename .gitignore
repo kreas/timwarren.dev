@@ -3,3 +3,5 @@ dist/
 **/*.log
 .now
 .DS_Store
+
+.now

@@ -94,11 +94,18 @@ gulp.task('assets', () => {
     .pipe(gulp.dest(buildDir))
 })
 
+// Copies assets to the build directory
+gulp.task('functions', () => {
+  return gulp.src('src/api/**')
+    .pipe(gulp.dest(`${buildDir}/api`))
+})
+
 //
 gulp.task('build', gulp.parallel(
   'markup',
   'markdown',
   'javascript',
+  'functions',
   'stylesheets',
   'assets'
 ))
@@ -109,13 +116,14 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*.pug', gulp.series('markup'))
   gulp.watch(['src/**/*.md', 'src/lib/layouts/**/*.pug'], gulp.series('markdown'))
   gulp.watch('src/**/*.{png,jpg,svg,ico}', gulp.series('assets'))
+  gulp.watch('src/api/**', gulp.series('functions'))
   gulp.watch('src/**/*.js', gulp.series('javascript'))
 })
 
 gulp.task('serve', () => {
   browserSync.init({
     server: buildDir,
-    port: 4200,
+    port: 3000,
     snippetOptions: {
       rule: {
         match: /<\/head>/i,
