@@ -37,7 +37,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "postcss-easy-import": "^3.0.0",
     "postcss-nested": "^4.2.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "rollup": "^2.1.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-stream": "^1.24.1"
